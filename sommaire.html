@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET">
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="#CHARSET">
+	<title>#NOM_SITE_SPIP</title>
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="#CHEMIN{css/base.css}" type='text/css' />
+	<link rel="stylesheet" href="#CHEMIN{css/skeleton.css}" type='text/css' />
+	<link rel="stylesheet" href="#CHEMIN{css/layout.css}" type='text/css' />
+	[<link rel="stylesheet" href="(#CHEMIN{css/perso.css})" type='text/css' />
+	]<style>
+		img { max-width: 100%; height: auto; }
+		iframe { max-width: 100%; }
+	</style>
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	#INSERT_HEAD
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+<!--
+			<h5 style="margin-top: 40px">
+			<a href="/">#NOM_SITE_SPIP</a></h5>
+-->
+
+
+		<div class="sixteen columns">
+
+		<div class="six columns alpha">
+		<h1>#NOM_SITE_SPIP</h1>
+
+		<div class="five columns offset-by-one">
+		<p>#SLOGAN_SITE_SPIP</p>
+		<br />
+		</div>
+
+		<B_trad>
+			<div class="five columns offset-by-one lang">
+			<span class="on">[(#LANG|traduire_nom_langue|mb_strtolower)]</span>
+		<BOUCLE_trad(ARTICLES){lang!=#LANG}{fusion lang}>
+			<span><a href="[(#SELF|parametre_url{lang,#LANG})]"
+			>[(#LANG|traduire_nom_langue|mb_strtolower)]</a></span>
+		</BOUCLE_trad>
+			</div>
+		</B_trad>
+		
+		
+		<h3> </h3>
+
+<BOUCLE_a(AUTEURS){par hasard}>
+
+		<div class="seven columns[ (#COMPTEUR_BOUCLE|alterner{"alpha offset-by-one","omega"})]">
+		<a href="[(#URL_AUTEUR|parametre_url{lang,#LANG})]" style="text-decoration: none">
+		<p>[(#LOGO_AUTEUR|image_reduire{600,400})]</p>
+		<strong>#NOM</strong> <BOUCLE_bio(ARTICLES){id_auteur}{lang}{0,1}>
+			- #TITRE
+			</BOUCLE_bio>
+			<BOUCLE_bio2(ARTICLES){id_auteur}{0,1}>
+			- #TITRE
+			</BOUCLE_bio2>
+			<//B_bio>
+		</a>
+
+		</div>
+		</div><!-- /sixteen -->
+
+
+
+		<div class="sixteen columns">
+		<div class="bio #EDIT{texte}">#TEXTE</div>
+
+
+		</div><!-- /sixteen -->
+
+</BOUCLE_a>
+
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

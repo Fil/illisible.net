@@ -1,0 +1,22 @@
+<B_documents>
+<style>
+.spip_documents a { text-decoration: none }
+.spip_documents .spip_doc_descriptif { line-height:1.2em; }
+.spip_documents { margin-bottom: 2em; }
+</style>
+<div class=clearfix>
+<BOUCLE_documents(DOCUMENTS){id_article}{titre>""}{mode=document}
+	{par rang_lien, num titre, titre}
+>
+
+<div class="five columns[ (#COMPTEUR_BOUCLE|alterner{"alpha offset-by-one","","omega"})]">
+[<a href="(#DESCRIPTIF|extraire_balise{a}|extraire_attribut{href})" target="_blank">#SET{a,a}]
+[(#EMBED_DOCUMENT|image_reduire{800,}|image_recadre{600,400,center,white}|replace{"width:350px", ""})]
+[(#GET{a}|?{</a>})]
+
+	[(#COMPTEUR_BOUCLE|alterner{"","","</div><div class=clearfix>"})]
+</div>
+
+</BOUCLE_documents>
+</div>
+</B_documents>

@@ -1,0 +1,73 @@
+<BOUCLE_a(ARTICLES)
+	{id_auteur}
+	{id_rubrique=2}
+	{lang=#LANG}
+	{0,1}
+><!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET">
+
+	<meta charset="#CHARSET">
+	<title>[(#LESAUTEURS|textebrut)][ — (#TITRE|textebrut)]</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" href="#CHEMIN{css/base.css}" type='text/css' />
+	<link rel="stylesheet" href="#CHEMIN{css/skeleton.css}" type='text/css' />
+	<link rel="stylesheet" href="#CHEMIN{css/layout.css}" type='text/css' />
+	[<link rel="stylesheet" href="(#CHEMIN{css/perso.css})" type='text/css' />
+	]<style>
+		img { max-width: 100%; height: auto; }
+		iframe { max-width: 100%; }
+	</style>
+	#INSERT_HEAD
+</head>
+<body>
+
+
+	<div class="container">
+
+		<div class="sixteen columns">
+
+		<div class="six columns alpha">
+		<h1>[(#LESAUTEURS|textebrut)]</h1>
+
+		<div class="five columns offset-by-one">
+		<p class="#EDIT{titre}">#TITRE</p>
+		<br />
+		</div>
+
+		<B_trad>
+			<div class="five columns offset-by-one lang">
+			<span class="on">[(#LANG|traduire_nom_langue|mb_strtolower)]</span>
+		<BOUCLE_trad(ARTICLES){traduction}{lang!=#LANG}>
+			<span><a href="[(#URL_AUTEUR|parametre_url{lang,#LANG})]"
+			>[(#LANG|traduire_nom_langue|mb_strtolower)]</a></span>
+		</BOUCLE_trad>
+			</div>
+		</B_trad>
+
+		</div>
+
+		<div class="nine columns offset-by-one omega">
+		<p>#LOGO_AUTEUR</p>
+		</div>
+		</div><!-- /sixteen -->
+
+
+
+		<div class="sixteen columns">
+		<div class="bio #EDIT{texte}">[(#TEXTE|image_reduire{1200,})]</div>
+
+
+		</div><!-- /sixteen -->
+
+		<a href="#URL_SITE_SPIP/">➫ #NOM_SITE_SPIP</a>
+
+	</div><!-- container -->
+
+
+</body>
+</html>
+</BOUCLE_a>

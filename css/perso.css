@@ -1,0 +1,64 @@
+@font-face {font-family: 'LeagueGothic';font-weight: bold;src:url('polis/leaguegothic-regular-webfont.ttf') format('truetype');}
+@font-face {font-family: 'Alegreya';font-weight: normal;src:url('polis/Alegreya-Regular.otf') format('truetype');}
+
+/*
+@font-face {font-family: 'Alegreya';font-weight: bold;src:url('polis/Alegreya-Bold.otf') format('truetype');}
+@font-face {font-family: 'Alegreya';font-style: italic;src:url('polis/Alegreya-Italic.otf') format('truetype');}
+*/
+
+body {
+	color: black;
+	background-color: white;
+	font-size: 100%;
+	line-height: 1.4em;
+	font-family: Alegreya, serif;
+	padding-top: 3em;
+	padding-bottom: 5em;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: LeagueGothic, sans-serif;
+}
+
+h1 { font-size: 48px; }
+
+h2 {
+	margin-top: 1em;
+	border-bottom: solid 1px #d80394 /* #ddd */;
+}
+
+h3 {
+	margin-top: 0.8em;
+}
+
+p {
+	text-indent: 1.5em;
+	margin-bottom: 0;
+}
+p:first-of-type {
+	text-indent: 0em;
+}
+
+/* le reset efface meme ca */
+i { font-style: italic; }
+
+/* colors */
+h1,h2 { color: #d80394; }
+hr { border-top-color: #d80394; }
+
+
+/* traductions */
+div.lang { text-align: left; }
+div.lang span { padding:0 3px; border: 1px solid #ccc; }
+div.lang span.on { border-color: #666; }
+div.lang span a { text-decoration: none; }
+
+/* RESPONSIVE */
+@media only screen and (min-width: 768px) {
+	body {
+		line-height: 1.58em;
+	}
+	p {
+		font-size: 18px;
+		text-rendering: optimizeLegibility;
+	}
+}
