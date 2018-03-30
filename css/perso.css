@@ -38,6 +38,11 @@ p:first-of-type {
 	text-indent: 0em;
 }
 
+.authorcard {
+	margin-bottom: 2em;
+}
+
+
 /* le reset efface meme ca */
 i { font-style: italic; }
 

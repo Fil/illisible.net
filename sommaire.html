@@ -26,16 +26,16 @@
 
 		<div class="sixteen columns">
 
-		<div class="six columns alpha">
+		<div class="sixteen columns alpha">
 		<h1>#NOM_SITE_SPIP</h1>
 
-		<div class="five columns offset-by-one">
+		<div class="fifteen columns offset-by-one">
 		<p>#SLOGAN_SITE_SPIP</p>
 		<br />
 		</div>
 
 		<B_trad>
-			<div class="five columns offset-by-one lang">
+			<div class="fifteen columns offset-by-one lang">
 			<span class="on">[(#LANG|traduire_nom_langue|mb_strtolower)]</span>
 		<BOUCLE_trad(ARTICLES){lang!=#LANG}{fusion lang}>
 			<span><a href="[(#SELF|parametre_url{lang,#LANG})]"
@@ -47,32 +47,34 @@
 		
 		<h3> </h3>
 
-<BOUCLE_a(AUTEURS){par hasard}>
 
-		<div class="seven columns[ (#COMPTEUR_BOUCLE|alterner{"alpha offset-by-one","omega"})]">
-		<a href="[(#URL_AUTEUR|parametre_url{lang,#LANG})]" style="text-decoration: none">
-		<p>[(#LOGO_AUTEUR|image_reduire{600,400})]</p>
-		<strong>#NOM</strong> <BOUCLE_bio(ARTICLES){id_auteur}{lang}{0,1}>
-			- #TITRE
-			</BOUCLE_bio>
+<BOUCLE_a(AUTEURS){par hasard}{id_auteur > 1}>
+
+		#SET{titre,""}
+		#SET{lang,""}
+		<BOUCLE_bio(ARTICLES){id_auteur}{lang}{0,1}>
+			#SET{titre,#TITRE}
+			#SET{lang,#LANG|replace{fr}}
+		</BOUCLE_bio>
 			<BOUCLE_bio2(ARTICLES){id_auteur}{0,1}>
-			- #TITRE
+			#SET{titre,#TITRE}
+			#SET{lang,#LANG|replace{fr}}
 			</BOUCLE_bio2>
-			<//B_bio>
+		<//B_bio>
+
+
+		<div class="authorcard seven columns[ (#COMPTEUR_BOUCLE|alterner{"alpha offset-by-one","omega"})]">
+		<a href="[(#URL_AUTEUR|parametre_url{lang,#GET{lang}})]" style="text-decoration: none">
+		<p>[(#LOGO_AUTEUR|image_reduire{600,}|image_recadre{400,400,center,white})]</p>
+		<strong>#NOM</strong>[ - (#GET{titre})]
 		</a>
 
 		</div>
-		</div><!-- /sixteen -->
 
-
-
-		<div class="sixteen columns">
-		<div class="bio #EDIT{texte}">#TEXTE</div>
-
-
-		</div><!-- /sixteen -->
-
+	[(#COMPTEUR_BOUCLE|alterner{"","</div><div class=clearfix>"})]
 </BOUCLE_a>
+
+		</div><!-- sixteen -->
 
 	</div><!-- container -->
 
