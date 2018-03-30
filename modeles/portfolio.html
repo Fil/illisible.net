@@ -11,7 +11,13 @@
 
 <div class="five columns[ (#COMPTEUR_BOUCLE|alterner{"alpha offset-by-one","","omega"})]">
 [<a href="(#DESCRIPTIF|extraire_balise{a}|extraire_attribut{href})" target="_blank">#SET{a,a}]
-[(#EMBED_DOCUMENT|image_reduire{800,}|image_recadre{600,400,center,white}|replace{"width:350px", ""})]
+[(#EMBED_DOCUMENT
+	|image_recadre{#ENV{largeur_logo,600}:#ENV{hauteur_logo,400},-,focus}
+	|image_reduire{#ENV{largeur_logo,600}}
+|replace{"width:350px", ""})]
+
+		</p>
+
 [(#GET{a}|?{</a>})]
 
 	[(#COMPTEUR_BOUCLE|alterner{"","","</div><div class=clearfix>"})]
