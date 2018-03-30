@@ -65,7 +65,8 @@
 
 		<div class="authorcard seven columns[ (#COMPTEUR_BOUCLE|alterner{"alpha offset-by-one","omega"})]">
 		<a href="[(#URL_AUTEUR|parametre_url{lang,#GET{lang}})]" style="text-decoration: none">
-		<p>[(#LOGO_AUTEUR|image_reduire{600,}|image_recadre{400,400,center,white})]</p>
+		<p>
+		[(#LOGO_AUTEUR|image_recadre{#ENV{largeur_logo,370}:#ENV{hauteur_logo,370},-,focus}|image_reduire{#ENV{largeur_logo,370}})]</p>
 		<strong>#NOM</strong>[ - (#GET{titre})]
 		</a>
 
