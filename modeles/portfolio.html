@@ -15,11 +15,7 @@
 	|image_recadre{#ENV{largeur_logo,600}:#ENV{hauteur_logo,400},-,focus}
 	|image_reduire{#ENV{largeur_logo,600}}
 |replace{"width:350px", ""})]
-
-		</p>
-
 [(#GET{a}|?{</a>})]
-
 	[(#COMPTEUR_BOUCLE|alterner{"","","</div><div class=clearfix>"})]
 </div>
 
